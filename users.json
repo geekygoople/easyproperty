@@ -33,6 +33,13 @@
 		"role": "user",
 		"email": "richard@xyz.com",
 		"status": "inactive"
+	},
+	{
+		"id": "6666666666666",
+		"firstName": "Mart",
+		"lastName": "Martin",
+		"role": "user",
+		"email": "mm@xyz.com",
+		"status": "actiive"	
 	}
-
 ]

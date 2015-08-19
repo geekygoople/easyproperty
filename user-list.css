@@ -25,6 +25,7 @@ table {
 .btn-primary {
   background: #3b3b3b;
   border: #3b3b3b;
+  margin: 2px;
 }
 
 .btn-primary:hover {

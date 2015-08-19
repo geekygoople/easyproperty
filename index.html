@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <title>User Management Dashboard</title>
+    <title>EAZY PROPERTY Dashboard</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -38,9 +38,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">News</a></li>
+            <li><a href="#">Newsletter</a></li>
             <li><a href="#">Service Request</a></li>
-            <li><a href="#">Mailbox</a></li>
+            <li><a href="#">Mail Box</a></li>
             <li><a href="#">Polls</a></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Sign in</a></li>
@@ -54,7 +54,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">User Management <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Create a New User</a></li>
-            <li><a href="#">Import Users</a></li>
+            <li><a href="#">Import Bulk Users</a></li>
           </ul>
         </div>
         <div ng-controller="SearchController as searchCtrl">
@@ -77,9 +77,10 @@
                   </div>
                 </form>
               </div>
-              
-              <button class="btn btn-primary pull-right" ng-click="sendInvitationCode()">Send Invitation Code</button>
-              
+              <div class="col-md-6">
+                <button class="btn btn-primary pull-right" ng-click="sendInvitationCode()">Send Invitation Code</button>
+                <button class="btn btn-primary pull-right">Create User</button>
+              </div>
             </div>
             
             <div class="table-responsive col-xs-12">
