@@ -1,6 +1,5 @@
 <section>
   <div class="row">
-    <button class="btn btn-primary" ng-click="sendInvitationCode()">Send Invitation Code</button>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -14,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="user in userCtrl.users" ng-show="user.status === searchCtrl.status || 'all' === searchCtrl.status">
+        <tr ng-repeat="user in users" >
           <td><input type="checkbox" ng-model="user.isChecked"></td>
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
@@ -26,4 +25,5 @@
       </tbody>
     </table>
   </div>
-</section>
+  <!-- ng-show="user.status === searchCtrl.status || 'all' === searchCtrl.status" -->
+</section>  

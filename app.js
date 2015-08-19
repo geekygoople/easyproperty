@@ -1,27 +1,40 @@
 (function() {
 	var app = angular.module('userManagement', []);
 
+	app.filter('searchStatus', function($filter) {
+		return function(users, status) {
+			if (status == "all")
+				return users;
+			return $filter('filter')(users, {
+				"status": status
+			}, true);
+		};
+	})
+
 	app.directive('userTable', ['$http', function($http) {
 		return {
 			restrict: 'E',
 			templateUrl: 'user-table.html',
+			scope: {
+				users: "="
+			},
 			controller: function($scope, $http, $filter) {
-				$http.get('./users.json').success(function(data) {
-					$scope.userCtrl.users = data;
-					console.log($scope);
-				});
 				$scope.sendInvitationCode = function() {
-					console.log($filter('filter')($scope.userCtrl.users, {
+					console.log($filter('filter')($scope.users, {
 						isChecked: true
 					}));
 				}
-			},
-			controllerAs: 'userCtrl'
+			}
 		};
 	}]);
 
-	app.controller('SearchController', function() {
+	app.controller('SearchController', function($http, $scope) {
 		this.status = 'all';
+		$scope.response = [];
+		$http.get('./users.json').success(function(data) {
+			$scope.response = data;
+			console.log($scope);
+		});
 	});
 
 })();

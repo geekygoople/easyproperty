@@ -10,7 +10,9 @@ a {
   color: #2B2B2B;
 }
 
-
+table {
+  background-color: white;
+}
 /*
  * Global add-ons
  */
@@ -21,14 +23,14 @@ a {
 }
 
 .btn-primary {
-  background: none;
-  color: #3b3b3b;
-  border: white;
+  background: #3b3b3b;
+  border: #3b3b3b;
 }
 
 .btn-primary:hover {
-  background: #3b3b3b;
-  border: #3b3b3b;
+  border: white;
+  background: none;
+  color: #3b3b3b;
 }
 
 /*
