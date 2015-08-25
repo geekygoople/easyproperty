@@ -1,10 +1,29 @@
 (function() {
-	angular.module('userManagement', ['ngRoute'])
+	var zpropServices = angular.module('zpropServices', ['ngResource']);
+
+	zpropServices.factory('UserService', ['$resource',
+		function($resource) {
+			return $resource('http://api.zprop.com:8080/eazyprop/users/', {}, {
+				save: {
+					method: 'POST',
+					params: {
+						"token": "any test",
+						"operatingSiteId": 1,
+						"operatingUserId": 1
+					},
+					isArray: true
+				}
+			});
+		}
+	]);
+
+
+	angular.module('userManagement', ['ngRoute', 'ngResource', 'zpropServices'])
 
 	.config(function($routeProvider) {
 		$routeProvider
 
-		.when('/newsletter', {
+			.when('/newsletter', {
 			//controller: 'UserListController as userList',
 			templateUrl: 'pages/newsletter.html'
 		})
@@ -59,14 +78,14 @@
 		};
 	})
 
-	.directive('userTable', ['$http', function($http) {
+	.directive('userTable', [function() {
 		return {
 			restrict: 'E',
 			templateUrl: 'directives/user-table.html',
 			scope: {
 				users: "="
 			},
-			controller: function($scope, $http, $filter) {
+			controller: function($scope, $filter) {
 				$scope.sendInvitationCode = function() {
 					console.log($filter('filter')($scope.users, {
 						isChecked: true
@@ -76,12 +95,34 @@
 		};
 	}])
 
-	.controller('UserListController', function($http, $scope, $location) {
+	.controller('UserListController', function($scope, $resource, $location, UserService) {
 		this.status = 'all';
 		$scope.userData = [];
-		$http.get('mock_data/users.json').success(function(data) {
+
+	/*	$scope.userData = UserService.save({
+			"token": "any test",
+			"operatingSiteId": 1,
+			"operatingUserId": 1
+		}, function(phone) {
+			console.log(phone);
+		});*/
+
+		/*$http.get('mock_data/users.json').success(function(data) {
 			$scope.userData = data;
+		});*/
+
+		$scope.userAPI = $resource('mock_data/users.json');
+		$scope.userData = $scope.userAPI.query();
+
+		/*$scope.userAPI = $resource('http://api.zprop.com:8080/eazyprop/users', {
+			callback: 'JSON_CALLBACK'
+		}, {
+			get: {
+				method: 'JSONP',
+				isArray: true
+			}
 		});
+		$scope.userData = $scope.userAPI.save();*/
 
 		/*$http.post('http://api.zprop.com:8080/eazyprop/users/', {
 			"token": "any test",
