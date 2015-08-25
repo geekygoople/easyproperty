@@ -6,7 +6,7 @@
 
 			.when('/', {
 				//controller: 'UserListController as userList',
-				templateUrl: 'pages/user.html'
+				templateUrl: 'pages/list.html'
 			})
 
 			.when('/newsletter', {
