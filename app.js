@@ -5,53 +5,53 @@
 		$routeProvider
 
 			.when('/', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/list.html'
-			})
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/list.html'
+		})
 
-			.when('/newsletter', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/newsletter.html'
-			})
+		.when('/newsletter', {
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/newsletter.html'
+		})
 
-			.when('/sr', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/service-request.html'
-			})
+		.when('/sr', {
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/service-request.html'
+		})
 
-			.when('/mailbox', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/mailbox.html'
-			})
+		.when('/mailbox', {
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/mailbox.html'
+		})
 
-			.when('/poll', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/poll.html'
-			})
+		.when('/poll', {
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/poll.html'
+		})
 
-			.when('/logout', {
-				//controller: 'UserListController as userList',
-				templateUrl: 'pages/logout.html'
-			})
+		.when('/logout', {
+			//controller: 'UserListController as userList',
+			templateUrl: 'pages/logout.html'
+		})
 
-			.when('/user', {
-				controller: 'UserListController as userList',
-				templateUrl: 'pages/list.html'
-			})
+		.when('/user', {
+			controller: 'UserListController as userList',
+			templateUrl: 'pages/list.html'
+		})
 
-			.when('/user/edit/:userId', {
-				controller: 'EditUserController as editUser',
-				templateUrl: 'pages/detail.html'
-			})
+		.when('/user/edit/:userId', {
+			controller: 'EditUserController as editUser',
+			templateUrl: 'pages/detail.html'
+		})
 
-			.when('/user/new', {
-				controller: 'NewUserController as editUser',
-				templateUrl: 'pages/newuser.html'
-			})
+		.when('/user/new', {
+			controller: 'NewUserController as editUser',
+			templateUrl: 'pages/newuser.html'
+		})
 
-			.otherwise({
-				redirectTo: '/user'
-			});
+		.otherwise({
+			redirectTo: '/user'
+		});
 	})
 
 	.filter('byStatus', function($filter) {
@@ -87,6 +87,14 @@
 		$http.get('mock_data/users.json').success(function(data) {
 			$scope.userData = data;
 		});
+
+		/*$http.post('http://104.155.212.46:8080/eazyprop/users/', {
+			"token": "any test",
+			"operatingSiteId": 1,
+			"operatingUserId": 1
+		}).success(function(result) {
+			$scope.userData = result;
+		});*/
 	})
 
 	.controller('EditUserController', function($http, $scope, $location) {
