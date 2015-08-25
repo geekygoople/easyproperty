@@ -14,10 +14,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <!-- Custom styles for this template -->
-    <link href="user-list.css" rel="stylesheet">
+    <link href="css/user-list.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!--script src="../../assets/js/ie-emulation-modes-warning.js"></script-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -36,71 +36,30 @@
           </button>
           <a class="navbar-brand" href="#">EA<span style="color:#DE5021">Z</span>Y PROPERTY</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="_navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Newsletter</a></li>
-            <li><a href="#">Service Request</a></li>
-            <li><a href="#">Mail Box</a></li>
-            <li><a href="#">Polls</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Sign in</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">User Management <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Create a New User</a></li>
-            <li><a href="#">Import Bulk Users</a></li>
+            <li class="active"><a href="#/user" data-toggle="collapse" data-target="#navbar">User Management <span class="sr-only">(current)</span></a></li>
+            <li><a href="#/newsletter" data-toggle="collapse" data-target="#navbar">Newsletter</a></li>
+            <li><a href="#/sr" data-toggle="collapse" data-target="#navbar">Service Request</a></li>
+            <li><a href="#/mailbox" data-toggle="collapse" data-target="#navbar">Mail Box</a></li>
+            <li><a href="#/poll" data-toggle="collapse" data-target="#navbar">Polls</a></li>
           </ul>
         </div>
-        <div ng-controller="SearchController as searchCtrl">
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" >
-            <h1 class="page-header">User Management</h1>
-            <!-- <h2 class="sub-header">Users</h2> -->
-            <div class="row">
-              <div class="col-md-6">
-                <form action="http://bootsnipp.com/search" method="GET" role="search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="q" placeholder="name, id, email">
-                    <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                      <!-- <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button> -->
-                    </span>
-                    <span>
-                      <select ng-model="searchCtrl.status" class="form-control" ng-options="status for status in ['all','active','inactive']" title="Filter by">
-                      </select>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-primary pull-right" ng-click="sendInvitationCode()">Send Invitation Code</button>
-                <button class="btn btn-primary pull-right">Create User</button>
-              </div>
-            </div>
-            
-            <div class="table-responsive col-xs-12">
-              
-              <user-table users="response | searchStatus:searchCtrl.status" ></user-table>
-            </div>
-          </div>
-        </div>
+        <div ng-view class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"></div>
       </div>
     </div>
     <style>
-    .main-bg {
-    height: 100%;
-    width: 100%;
-    background-image: url(http://static.wixstatic.com/media/ea66f0de45ec4109b5eb190bed2244d1.jpg_srz_p_1920_1164_85_22_0.50_1.20_0.00_jpg_srz);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    }
+  
     </style>
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -110,11 +69,12 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- script src="../../assets/js/vendor/holder.min.js"></script-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

@@ -1,0 +1,34 @@
+<div>
+    <h2 class="page-header">User Management</h2>
+    <!-- <h2 class="sub-header">Users</h2> -->
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary pull-right" ng-click="sendInvitationCode()">Send Invitation Code</button>
+
+        <a class="btn btn-primary pull-right" href="#/user/new">Create a User</a>
+        <a class="btn btn-primary pull-right" href="#/user/import">Import Bulk Users</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <form method="GET" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="name, id, email">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+            <span>
+              <select ng-model="userList.status" class="form-control" ng-options="status for status in ['all','active','inactive']" title="Filter by">
+              </select>
+            </span>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+    
+    <div class="table-responsive col-lg-12 col-md-6 col-xs-12">
+      <user-table users="userData | byStatus: userList.status" ></user-table>
+    </div>
+  </div>
+</div>
