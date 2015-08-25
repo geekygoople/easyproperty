@@ -4,11 +4,6 @@
 	.config(function($routeProvider) {
 		$routeProvider
 
-			.when('/', {
-			//controller: 'UserListController as userList',
-			templateUrl: 'pages/list.html'
-		})
-
 		.when('/newsletter', {
 			//controller: 'UserListController as userList',
 			templateUrl: 'pages/newsletter.html'
