@@ -88,7 +88,7 @@
 			$scope.userData = data;
 		});
 
-		/*$http.post('http://104.155.212.46:8080/eazyprop/users/', {
+		/*$http.post('http://api.zprop.com:8080/eazyprop/users/', {
 			"token": "any test",
 			"operatingSiteId": 1,
 			"operatingUserId": 1
